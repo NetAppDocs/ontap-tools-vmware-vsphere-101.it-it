@@ -1,0 +1,34 @@
+---
+permalink: configure/verify-registration.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Verificare che la SVM integrata sia elencata in VASA Provider dall"interfaccia utente client vCenter.' 
+---
+= Verificare il provider VASA registrato
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verificare che il provider VASA integrato sia elencato sotto VASA Provider dall'interfaccia utente del client vCenter e dall'interfaccia utente del plug-in remoto.
+
+*Fasi*
+
+. Per verificare VASA Provider dall'interfaccia utente del client vCenter, attenersi alla seguente procedura:
++
+.. Accedere a vCenter Server.
+.. Accedere con le credenziali di amministratore.
+.. Selezionare *fornitori di archiviazione*.
+.. Selezionare *Configura*.
+.. Nella sezione relativa ai backend storage/provider di storage, verificare che il provider VASA integrato sia elencato correttamente.
+
+
+. Per verificare il provider VASA dall'interfaccia utente del plug-in remoto, attenersi alla seguente procedura:
++
+.. Accedere al client vSphere utilizzando `\https://vcenterip/ui`
+.. Nella pagina dei collegamenti, fare clic su *NetApp ONTAP tools* nella sezione dei plug-in.
+.. È possibile visualizzare il provider VASA registrato nella pagina panoramica e nella pagina *Impostazioni* > *Impostazioni provider VASA*.
+
+
+

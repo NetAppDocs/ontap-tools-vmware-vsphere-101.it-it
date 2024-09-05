@@ -1,0 +1,99 @@
+---
+permalink: deploy/nonha-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: È possibile configurare un singolo nodo non ha in configurazioni piccole o medie. 
+---
+= Implementa una configurazione non ha a nodo singolo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile implementare una configurazione a nodo singolo non ha in configurazioni piccole o medie.
+
+* La configurazione piccola non ha contiene 8 CPU e 16 GB di RAM.
+* La configurazione media non ha contiene 12 CPU e 24 GB di RAM.
+
+
+*Prima di iniziare*
+
+Assicurarsi che il percorso di rete sia presente. La rete di dati dello storage deve essere accessibile dalla rete di gestione delle VM. Esempio: C1_sti67-vsim-ucs154k_1679633108::> route di rete create -vserver <SVM> -destination 0,0.0.0/0 -gateway <gateway_ip>
+
+*Fasi*
+
+. Accedere al server vSphere.
+. Accedere al pool di risorse, al cluster o all'host in cui si desidera distribuire l'OVA.
+. Fare clic con il pulsante destro del mouse sulla posizione desiderata e selezionare *Deploy OVF template...* (distribuire modello OVF...).
++
+
+NOTE: Non implementare la macchina virtuale VMware vSphere con tool ONTAP in un datastore vVol gestito dal reparto IT.
+
+. È possibile immettere l'URL del file _.ova_ o navigare alla cartella in cui è stato salvato il file _.ova_, quindi selezionare *Avanti*.
+. Selezionare un nome e una cartella per la macchina virtuale e selezionare *Avanti*.
+. Selezionare l'host e selezionare *Avanti*
+. Rivedere il riepilogo del modello e selezionare *Avanti*.
+. Leggere e accettare il contratto di licenza e selezionare *Avanti*.
+. Nella finestra *Configurazione*, selezionare la configurazione *distribuzione semplice(S)*, *distribuzione facile(M)* o *distribuzione avanzata(S)* o *distribuzione avanzata(M)*.
++
+Le opzioni di implementazione avanzate utilizzano Trident come provisioner di storage dinamico per ONTAP per creare volumi e la semplice implementazione usa lo storage locale per creare volumi.
+
+. Selezionare il datastore in cui è necessario implementare l'OVA e selezionare *Avanti*.
+. Selezionare la rete di origine e di destinazione e selezionare *Avanti*.
+. Selezionare la finestra *Personalizza modello* > *Configurazione di sistema*.
++
+image:../media/ha-deployment-sys-config.png["configurazione di sistema"] Immettere i seguenti dettagli: .. Nome utente e password dell'applicazione: Questo nome utente e password vengono utilizzati per registrare sia il provider VASA che SRA in vCenter Server. .. La casella di controllo *Abilita ASUP* è selezionata per impostazione predefinita.
+
+
+
+AutoSupport può essere attivato o disattivato solo durante l'implementazione. .. Nel campo *ASUP Proxy URL*, fornire questo URL per evitare il blocco del firewall per la trasmissione dei dati AutoSupport. .. Nome utente amministratore e password amministratore: Password utilizzata per accedere a Gestione strumenti ONTAP. .. Immettere le informazioni sul server NTP nel campo *Server NTP*. .. Password utente di manutenzione: Consente di accedere a 'Opzioni console manutenzione'. . Nella finestra *Personalizza modello* > *Configurazione distribuzione*, immettere i seguenti dettagli:
+
++ image:../media/ha-deploy-config.png["Configurazione di distribuzione"]
+
+. Inserisci un indirizzo IP disponibile nell'indirizzo IP virtuale per il piano di controllo di Kubernetes. Tutto ciò è necessario per Kubernetes API Server.
+. Selezionare l'opzione *attiva ambito SVM* quando si intende utilizzare l'account utente SVM aggiunto direttamente. Per usare ONTAP cluster, non selezionare la casella di controllo.
++
+
+NOTE: Una volta abilitato l'ambito SVM, dovresti aver già abilitato il supporto SVM con l'indirizzo IP di gestione.
+
+. Selezionare NFS o iSCSI nel campo *protocollo*.
+. Inserisci il cluster ONTAP o l'indirizzo IP di gestione SVM nel campo *LIF di gestione ONTAP/SVM*.
+. Entra nel cluster ONTAP o nella SVM ONTAP/SVM Data LIF. La LIF dati deve appartenere al protocollo selezionato. Ad esempio, se si seleziona il protocollo iSCSI, deve essere fornita una LIF dati iSCSI.
+. Per Storage VM, puoi scegliere di fornire i dettagli relativi alla Storage VM predefinita di ONTAP o creare una nuova Storage VM. Non immettere il valore nel campo *Storage VM* quando è selezionata l'opzione Enable SVM scoping (attiva ambito SVM), poiché questo campo viene ignorato.
+. Inserisci il nome utente di ONTAP/SVM. Trident richiede username e password di ONTAP/SVM per creare volumi per memorizzare i dati dei servizi in caso di implementazione avanzata o ha e per recuperare i dati dai volumi durante il guasto dei nodi.
+. Inserisci la password ONTAP/SVM.
+. La macchina virtuale primaria è abilitata per impostazione predefinita. Non modificare questa scelta.
++
+.. Nella finestra *Personalizza modello* > *Configurazione nodo* immettere le proprietà di rete dell'OVA.
++
+
+NOTE: Le informazioni qui fornite verranno convalidate per i modelli corretti durante il processo di installazione. In caso di discrepanza, sulla console Web viene visualizzato un messaggio di errore e viene richiesto di correggere eventuali informazioni errate fornite.
+
+
+
+. Immettere il nome host nel campo host name. Sono supportati solo i nomi host composti da lettere maiuscole (A-Z), lettere minuscole (a-z), cifre (0-9) e il trattino (-). Se si desidera configurare lo stack doppio, specificare il nome host mappato all'indirizzo IPv6.
+. Immettere l'indirizzo IP (IPv4) mappato al nome host. In caso di doppio stack, fornire qualsiasi indirizzo IP IPv4 disponibile che si trovi nella stessa VLAN dell'indirizzo IPv6.
+. Immettere l'indirizzo IPv6 sulla rete distribuita solo quando è necessario utilizzare la doppia leva.
+. Specificare la lunghezza del prefisso solo per IPv6.
+. Specificare la subnet da utilizzare nella rete distribuita nel campo maschera di rete (solo per IPv4).
+. Specificare il gateway sulla rete distribuita.
+. Specificare l'indirizzo IP del server DNS principale.
+. Specificare l'indirizzo IP del server DNS secondario.
+. Specificare il nome del dominio di ricerca da utilizzare quando si risolve il nome host.
+. Specificare il gateway IPv6 sulla rete distribuita solo quando è necessario disporre di uno stack doppio.
++
+.. Rivedere i dettagli nella finestra *Pronto per il completamento*, selezionare *fine*.
++
+Quando viene creata l'attività di distribuzione, l'avanzamento viene visualizzato nella barra delle applicazioni di vSphere.
+
+.. Accendere la macchina virtuale dopo il completamento dell'attività.
++
+L'installazione viene avviata. È possibile tenere traccia dell'avanzamento dell'installazione nella console Web della VM. Come parte dell'installazione, le configurazioni dei nodi sono validate. Gli input forniti nelle diverse sezioni del modello Personalizza nel modulo OVF vengono convalidati. In caso di discrepanze, viene visualizzata una finestra di dialogo che richiede di intraprendere un'azione correttiva.
+
+.. Apportare le modifiche necessarie nella finestra di dialogo. Utilizzare il pulsante Tab per spostarsi all'interno del pannello per immettere i valori, *OK* o *Annulla*.
+.. Selezionando *OK*, i valori forniti verranno nuovamente convalidati. Strumenti ONTAP per VMware consente tre tentativi di correggere eventuali valori non validi. Se dopo tre tentativi non è possibile risolvere i problemi, l'installazione del prodotto si interrompe e si consiglia di provare a eseguire l'installazione su una nuova VM.
+.. Una volta completata l'installazione, la console Web mostra lo stato degli strumenti ONTAP per VMware vSphere.
+
+
+

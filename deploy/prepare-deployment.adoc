@@ -1,0 +1,55 @@
+---
+permalink: deploy/prepare-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Devi implementare nel tuo ambiente tool ONTAP per VMware vSphere e specificare i parametri necessari per poter utilizzare l"appliance.' 
+---
+= Preparazione all'implementazione dei tool ONTAP per VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di iniziare la distribuzione dei tool ONTAP per VMware vSphere, devi conoscere i requisiti di base del backend dello storage, le esigenze applicative e le licenze. Pianifica in anticipo la tua implementazione e decidi come configurare i tool ONTAP per VMware vSphere nel tuo ambiente.
+
+
+
+== Preparazione per l'implementazione
+
+Di seguito sono elencati i tool ONTAP per i requisiti di VMware vSphere prima di procedere con l'implementazione:
+
+. Configurare e configurare l'ambiente vCenter Server.
+. Scaricare il file _.ova_.
+. (Facoltativo) usato per l'utente dell'automazione - raccogliere il file JSON delle collezioni Postman fornito da NetApp.
+. Credenziali vCenter Server padre per distribuire l'OVA. La password di vCenter Server padre non deve contenere questi caratteri speciali ($, ', ")
+. Assicurarsi che l'host o il pool di risorse in cui viene distribuito l'OVA disponga delle risorse minime indicate nella link:../deploy/sizing-requirements.html["Prerequisiti per la distribuzione degli strumenti ONTAP per VMware vSphere"]sezione.
+. Le credenziali di accesso per l'istanza di vCenter Server a cui si connetteranno gli strumenti ONTAP per VMware vSphere per la post-implementazione per la registrazione.
+. Eliminare la cache del browser.
+. Per l'implementazione non ha, hai bisogno di tre indirizzi IP gratuiti - un indirizzo IP gratuito per il bilanciamento del carico e un indirizzo IP gratuito per il pannello di controllo di Kubernetes e un indirizzo IP per il nodo. Per l'implementazione ha, insieme a questi tre indirizzi IP, saranno necessari altri due indirizzi IP per il secondo e il terzo nodo. I nomi host devono essere mappati agli indirizzi IP liberi sul DNS prima dell'assegnazione. Tutti e cinque gli indirizzi IP devono trovarsi sulla stessa VLAN selezionata per la distribuzione.
+. Il modello della libreria di contenuti una volta caricato non deve essere eliminato dopo la distribuzione poiché verrà utilizzato durante i riavvii.
+. In un'implementazione multi-vCenter in cui i certificati CA personalizzati sono obbligatori, mappare il nome di dominio su cui il certificato viene rilasciato all'indirizzo IP virtuale. Eseguire un controllo _nslookup_ sul nome di dominio per verificare se il dominio viene risolto all'indirizzo IP desiderato. I certificati devono essere creati con il nome di dominio e l'indirizzo IP dell'indirizzo IP del bilanciatore del carico.
+. VLAN supportata IPv4/IPv6 - pure IPv6 non è supportato. La modalità mista è supportata con VLAN con indirizzi IPv6 e IPv4.
+. Server NTP fornito a vCenter Server per la sincronizzazione dell'ora.
+. Indirizzo IP statico Dettagli di configurazione per il nodo o la VM in cui viene distribuito l'OVA (obbligatorio) e altri dettagli.
++
+.. Nome host vCenter Server (vCenter dove viene distribuito OVA)
+.. Nome utente vCenter Server (vCenter dove viene distribuito OVA)
+.. Password vCenter Server (vCenter dove viene distribuito OVA)
+.. Pool di risorse
+.. Data LIF (IPv4/IPv6)
+.. LIF di gestione
+.. Nome utente ONTAP
+.. Password ONTAP
+.. Nome SVM
+.. Protocollo
+.. Indirizzi IP virtuali per il piano di controllo di Kubernetes.
+.. Menu a discesa HA/NON ha
+.. Elenco dei nomi host
+.. Indirizzi IP (stringa)
+.. Nome della libreria di contenuti
+.. Nome modello OVF
+.. Gateway IPv6 (opzionale)
+
+
+

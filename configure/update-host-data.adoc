@@ -1,0 +1,21 @@
+---
+permalink: configure/update-host-data.html 
+sidebar: sidebar 
+keywords:  
+summary: 'È possibile eseguire un rilevamento on-demand sull"host ESXi per ottenere gli ultimi aggiornamenti dei dati storage.' 
+---
+= Aggiornare i dati dell'host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eseguire un rilevamento on-demand sull'host ESXi per ottenere gli ultimi aggiornamenti dei dati storage.
+
+*Fasi*
+
+. Nella home page del client Web VMware vSphere, fare clic su *host e cluster*.
+. Fare clic con il pulsante destro del mouse su un host, quindi selezionare *NetApp ONTAP tools* > *Aggiorna dati host*.
+. Nella finestra a comparsa *Aggiorna dati host*, selezionare *Sì* per riavviare il rilevamento di tutti i sistemi di archiviazione connessi.
+

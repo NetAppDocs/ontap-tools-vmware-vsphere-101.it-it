@@ -1,0 +1,48 @@
+---
+permalink: automation/manage-threshold-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 'Un flusso di lavoro è una sequenza di uno o più passaggi necessari per eseguire un"attività o un obiettivo amministrativo specifico.' 
+---
+= Gestire la soglia di archiviazione
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilizzare l'API Get Threshold riportata di seguito per recuperare i limiti di soglia dello storage configurati per volume e aggregato.
+
+[listing]
+----
+GET​/virtualization​/api​/v1​/vcenters​/{vcguid}​/storage-thresholds
+----
+Esempi: Ottieni le soglie di storage per istanza di vCenter Server tramite vCenter guid
+
+[listing]
+----
+GET "/api/v1/vcenters/beded9ad-6bbb-4c9e-b4c6-691250bfe2da/storage-thresholds"
+----
+Utilizzare il seguente allarme di configurazione PATCH per volume e aggregazione per generare notifica quando vengono raggiunti i limiti di soglia configurati.
+
+[listing]
+----
+PATCH​/virtualization​/api​/v1​/vcenters​/{vcguid}​/storage-thresholds
+----
+Esempi: Aggiorna le soglie di storage per vCenter by vCenter guid. I limiti predefiniti sono 80% per quasi pieno e 90% per pieno. Modifica di tutte le impostazioni di soglia
+
+[listing]
+----
+{{{}PATCH "/api/v1/vcenters/beded9ad-6bbb-4c9e-b4c6-691250bfe2da/storage-thresholds"
+Request Body
+{
+"volume":
+
+{ "nearly_full_percent": 80, "full_percent": 90 }
+,
+"aggregate": {
+"nearly_full_percent": 80,
+"full_percent": 90
+}
+}{}}}{}
+----

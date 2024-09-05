@@ -1,0 +1,53 @@
+---
+permalink: automation/delete-vvol-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 'Un flusso di lavoro è una sequenza di uno o più passaggi necessari per eseguire un"attività o un obiettivo amministrativo specifico.' 
+---
+= Eliminare il datastore vVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esiste un datastore vVols purché almeno un volume FlexVol sia disponibile nell'archivio dati. Se si desidera eliminare un datastore vVol in un cluster ha, è necessario prima smontare il datastore da tutti gli host all'interno del cluster ha, quindi eliminare manualmente la cartella _.vsphere-ha_ residente utilizzando l'interfaccia utente del server vCenter.
+
+*Fasi*
+
+Utilizzare la seguente API per eliminare il datastore vVol.
+
+[listing]
+----
+DELETE
+​/virtualization​/api​/v1​/vcenters​/{vcguid}​/vvols​/datastores​/{moref}
+----
+Esempi
+
+* Elimina il datastore vVol ed elimina i volumi dallo storage
+
+
+[listing]
+----
+  DELETE /api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-28?delete_volumes=true
+----
+
+NOTE: Delete vVol il flusso di lavoro del datastore elimina i volumi del datastore se il flag delete_volume è stato superato come true, indipendentemente dal fatto che il volume del datastore sia gestito o non gestito.
+
+* Elimina il datastore vVol e non rimuovi volumi dallo storage
+
+
+[listing]
+----
+  DELETE /api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-28?delete_volumes=false
+----
+Risposta:
+
+[listing]
+----
+{
+
+    "id": "1889"
+
+}
+----

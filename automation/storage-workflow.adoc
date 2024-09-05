@@ -1,0 +1,42 @@
+---
+permalink: automation/storage-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 'Un flusso di lavoro è una sequenza di uno o più passaggi necessari per eseguire un"attività o un obiettivo amministrativo specifico.' 
+---
+= Rilevamento dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'intervallo di ricerca può essere configurato come parte della mappa di configurazione. Il rilevamento pianificato viene eseguito ogni 60 minuti. Le API fornite qui consentono di eseguire il rilevamento on-demand per un backend dello storage specificato, aggiunto nell'ambito locale.
+
+Utilizzare la seguente API per eseguire il rilevamento:
+
+[listing]
+----
+POST
+/virtualization/api/v1/vcenters/{vcguid}/storage-backends/{id}/discovery-jobs
+----
+
+NOTE: Vedi il workflow di back-end dello storage integrato (SVM o Cluster) e ottieni l'ID dalla risposta dell'API di back-end post-storage.
+
+Il rilevamento da questo endpoint API è supportato solo per backend di storage con ambito locale e non per backend di storage con ambito globale. Se il tipo di backend dello storage è cluster, il rilevamento viene eseguito implicitamente per le SVM figlio. Se il tipo di backend dello storage è SVM, il rilevamento viene eseguito solo per la SVM selezionata.
+
+Esempio:
+
+Per eseguire il rilevamento su un backend di storage specificato dall'ID
+
+[listing]
+----
+POST
+/api/v1/vcenters/3fa85f64-5717-4562-b3fc-2c963f66afa6/storage-backends/74e85f64-5717-4562-b3fc-2c963f669dde/discovery-jobs
+----
+È necessario passare x-auth per l'API. È possibile generare questo x-auth dalla nuova API aggiunta in Auth in Swagger.
+
+[listing]
+----
+/virtualization/api/v1/auth/vcenter-login
+----

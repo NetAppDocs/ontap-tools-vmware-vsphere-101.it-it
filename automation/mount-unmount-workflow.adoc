@@ -1,0 +1,68 @@
+---
+permalink: automation/mount-unmount-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 'È possibile montare un datastore di volumi virtuali VMware (vVol) su uno o più host aggiuntivi per fornire accesso allo storage a host aggiuntivi. È possibile smontare il datastore vVol utilizzando le API.' 
+---
+= Montare e smontare un datastore vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile montare un datastore di volumi virtuali VMware (vVol) su uno o più host aggiuntivi per fornire accesso allo storage a host aggiuntivi. È possibile smontare il datastore vVol utilizzando le API.
+
+Utilizzare la seguente API per montare o smontare un datastore vVol. È necessario passare x-auth per l'API. È possibile generare questo x-auth dalla nuova API aggiunta in Auth in Swagger.
+
+[listing]
+----
+/virtualization/api/v1/auth/vcenter-login
+----
+[listing]
+----
+PATCH
+/virtualization/api/v1/vcenters/{vcguid}/vvols/datastores/{moref}/hosts
+----
+Ottieni moref del datastore vVol da vCenter.
+
+Corpo della richiesta
+
+[listing]
+----
+{
+  "operation": "mount",
+  "morefs": [
+    "host-7044"
+  ],
+}
+----
+Esempi: * Montare su un host aggiuntivo
+
+Utilizzare la seguente API per il montaggio su host aggiuntivo:
+
+[listing]
+----
+/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-24/hosts
+
+     Request Body
+     {
+      "operation": "mount",
+      "morefs": ["host-13"],
+     }
+----
+* Smontare su un host aggiuntivo
+
+
+Utilizzare la seguente API per smontare l'host aggiuntivo:
+
+[listing]
+----
+/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores/datastore-24/hosts
+
+     Request Body
+     {
+      "operation": "unmount",
+      "morefs": ["host-13"],
+     }
+----

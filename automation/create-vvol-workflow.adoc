@@ -1,0 +1,64 @@
+---
+permalink: automation/create-vvol-workflow.html 
+sidebar: sidebar 
+keywords: REST APIs, swagger 
+summary: 'Un flusso di lavoro è una sequenza di uno o più passaggi necessari per eseguire un"attività o un obiettivo amministrativo specifico.' 
+---
+= Creare il datastore vVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puoi creare un datastore vVol con nuovi volumi o con volumi esistenti. Puoi anche creare un datastore vVol con la combinazione di volumi esistenti e nuovi volumi.
+
+
+NOTE: Controllare che gli aggregati root non siano mappati alla SVM.
+
+Generare un token JWT prima di creare datastore o aumentare la scadenza del token SAML impostando "durata massima token portante" su 60m su vCenter.
+
+È necessario passare x-auth per l'API. È possibile generare questo x-auth dalla nuova API aggiunta in Auth in Swagger.
+
+/virtualization/api/v1/auth/vcenter-login
+
+. Crea un datastore vVol con un nuovo volume.
+
+
+Ottieni l'id aggregato, storage_id (uuid SVM) utilizzando l'API REST di ONTAP. POST /Virtualization/api/v1/vcenter/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvol/datastore
+
+Utilizzare il seguente URI per controllare lo stato:
+
++
+
+[listing]
+----
+`\https://xx.xx.xx.xxx:8443/virtualization/api/jobmanager/v2/jobs/<JobID>?includeSubJobsAndTasks=true`
+----
++ corpo della richiesta per il datastore NFS
+
+{ "name":"nfsds1 5000", "protocol":"nfs", "platform_type":"AFF", "moref":"domain-c8 11ee", "volumes":[ { "is_existing":false, "name":"vol_nfs_pvt", "size_in_mb":2048000 200, "3827-9273" } "3a50b40b-50b-50b-2110" }
+
+Corpo della richiesta per il datastore iSCSI: { "Name" : "iscsi_custom", "Protocol" : "iscsi", "platform_type": "AFF", "moref" : "domain-C8 11ee", "volumes" : [ { "is_existing" : false, "name" : "iscsi_custom", "size_in_mb" : 8034 igroup1 9506, "E461 1960-bb2d". Crea un datastore vVol con volumi esistenti.
+
+Ottieni aggregate_id e volume_id utilizzando l'API REST di ONTAP.
+
+ POST /virtualization/api/v1/vcenters/cdded9ad-6bsd-4c9e-b44g-691250bfe2df/vvols/datastores
+Corpo della richiesta
+
+....
+ {
+"name" : "nfsds2",
+"protocol" : "nfs",
+"platform_type": "aff",
+"moref" : "domain-c8",
+"volumes" : [
+    {
+          "is_existing": true,
+          "id": "e632a632-1412-11ee-8a8c-00a09860a3ff"
+        }
+],
+"storage_backend": {
+                    "storage_id": "33a8b6b3-10cd-11ee-8a8c-00a09860a3ff"    }
+....
+}

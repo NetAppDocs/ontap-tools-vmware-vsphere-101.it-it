@@ -1,0 +1,42 @@
+---
+permalink: protect/configure-on-srm-appliance.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Dopo aver installato l"appliance SRM, è necessario configurare SRA sull"appliance SRM. La corretta configurazione di SRA consente all"appliance SRM di comunicare con SRA per la gestione del disaster recovery. È necessario archiviare gli strumenti ONTAP per le credenziali VMware vSphere \(indirizzo IP e password amministratore\) nell"appliance SRM per consentire la comunicazione tra appliance SRM e SRA.' 
+---
+= Configurare SRA sull'appliance SRM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver installato l'appliance SRM, è necessario configurare SRA sull'appliance SRM. La corretta configurazione di SRA consente all'appliance SRM di comunicare con SRA per la gestione del disaster recovery. È necessario archiviare i tool ONTAP per le credenziali VMware vSphere (indirizzo IP) nell'appliance SRM per consentire la comunicazione tra l'appliance SRM e SRA.
+
+*Cosa ti serve*
+
+Il file _tar.gz_ dovrebbe essere stato scaricato da https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["Sito di supporto NetApp"].
+
+*A proposito di questa attività*
+
+La configurazione di SRA su appliance SRM memorizza le credenziali SRA nell'appliance SRM.
+
+*Fasi*
+
+. Nella schermata dell'appliance SRM, fare clic su *Storage Replication Adapter* > *New Adapter* (nuovo adattatore*).
+. Caricare il file _.tar.gz_ su SRM.
+. Effettuare l'accesso utilizzando l'account amministratore al dispositivo SRM utilizzando PuTTY.
+. Passare all'utente root utilizzando il comando: `su root`
+. Eseguire il comando `cd /var/log/vmware/srm` per accedere alla directory del registro.
+. Nella posizione del registro, immettere il comando per ottenere l'ID docker utilizzato da SRA: `docker ps -l`
+. Per accedere all'ID contenitore, immettere il comando: `docker exec -it -u srm <container id> sh`
+. Configurare SRM con i tool ONTAP per l'indirizzo IP e la password di VMware vSphere utilizzando il comando: `perl command.pl -I --otv-ip <OTV_IP>:8443 --otv-username <Application username> --otv-password <Application password> --vcenter-guid <VCENTER_GUID>'`
++
+
+NOTE: È necessario fornire il valore della password tra virgolette singole per assicurarsi che lo script Perl non legga i caratteri speciali nella password come delimitatore dell'input.
+
+. Eseguire nuovamente la scansione delle schede per verificare che i dettagli siano aggiornati nella pagina schede di replica dello storage SRM.
++
+Viene visualizzato un messaggio di conferma dell'avvenuta memorizzazione delle credenziali di storage. SRA può comunicare con il server SRA utilizzando l'indirizzo IP, la porta e le credenziali forniti.
+
+

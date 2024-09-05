@@ -1,0 +1,35 @@
+---
+permalink: deploy/download-ontap-tools.html 
+sidebar: sidebar 
+keywords:  
+summary: È possibile scaricare il file .ova per i tool ONTAP per VMware vSphere dal sito del supporto NetApp. 
+---
+= Scarica i tool ONTAP per VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile scaricare il `.zip` file che contiene file binari (_.ova_) e certificati firmati per gli strumenti ONTAP per VMware vSphere dal https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["Sito di supporto NetApp"^] .
+
+Una volta completata l'implementazione, nel tuo ambiente vengono installati i tool ONTAP per i prodotti VMware vSphere e VASA. Per impostazione predefinita, i tool di ONTAP per VMware vSphere iniziano a funzionare non appena decidi il modello di implementazione e scegli se abilitare il provider VASA in base ai tuoi requisiti. Per ulteriori informazioni, vedere link:../configure/registration-process.html["Registrare il provider VASA con un'istanza di vCenter Server"] .
+
+
+
+== Archivio di contenuti
+
+Una libreria di contenuti in VMware è un oggetto contenitore che memorizza modelli di VM, modelli di vApp e altri tipi di file. La distribuzione con la libreria di contenuti offre un'esperienza senza problemi poiché non dipende dalla connettività di rete.
+
+
+NOTE: È necessario archiviare la libreria di contenuti in un datastore condiviso, in modo che tutti gli host di un cluster possano accedervi. È necessario creare una libreria di contenuti per memorizzare l'OVA prima di distribuire l'OVA nella configurazione ha. Creare la libreria di contenuti utilizzando i seguenti passaggi:
+
+*Fasi*
+
+. Accedere al client vSphere utilizzando `\https://vcenterip/ui`
+. Selezionare i puntini di sospensione orizzontali accanto al client vSphere e selezionare *Libreria di contenuti*.
+. Selezionare *Crea* a destra della pagina.
+. Fornire un nome per la libreria e creare la libreria di contenuti.
+. Accedere alla libreria di contenuti creata.
+. Selezionare *azioni* nella parte destra della pagina e selezionare *Importa elemento* e importare il file OVA.
+
