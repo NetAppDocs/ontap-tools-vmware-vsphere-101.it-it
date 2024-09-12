@@ -1,0 +1,10 @@
+---
+section: release-notes
+title: Note di rilascio
+entries:
+- title: Note di rilascio
+  url: "/release-notes/release-notes.html"
+- title: Novità dei tool ONTAP per VMware vSphere 10,1
+  url: "/release-notes/whats-new-otv-101.html"
+- title: Confronto delle funzioni di OTV 9 e OTV 10
+  url: "/release-notes/otv-9-otv10-feature-comparison.html"

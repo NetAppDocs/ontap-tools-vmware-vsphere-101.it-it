@@ -1,0 +1,96 @@
+---
+permalink: release-notes/whats-new-otv-101.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, otv, 10.1' 
+summary: Scopri le nuove funzionalità disponibili in OTV 10,1. 
+---
+= Novità dei tool ONTAP per VMware vSphere 10,1
+:allow-uri-read: 
+
+
+[role="lead"]
+Scopri le nuove funzionalità disponibili nei tool ONTAP per VMware vSphere 10,1.
+
+[cols="30%,70%"]
+|===
+| Aggiornare | Descrizione 
+
+
+ a| 
+xref:../manage/migrate-standard-virtual-machines-to-vvols-datastores.html[Supporto per datastore NFS e VMFS]
+ a| 
+Questa release dei tool ONTAP per VMware vSphere supporta il provisioning del datastore vVol tramite il provider VASA e i datastore NFS v3 e VMFS. Sono supportate operazioni del datastore come la creazione, il ridimensionamento, il montaggio, la disinstallazione e l'eliminazione. È possibile eseguire il provisioning di datastore VMFS utilizzando il protocollo iSCSI. In qualità di amministratore VMware, puoi implementare, aggiornare e trasferire senza problemi datastore VMFS iSCSI dagli strumenti ONTAP per VMware vSphere 9.xx alla versione 10,1. La migrazione è supportata dai tool ONTAP per le release VMware vSphere 9.10D2, 9.11D4, 9,12 e 9,13 alla release 10,1.
+
+
+
+ a| 
+xref:../protect/configure-storage-replication-adapter-for-san-environment.html[Storage Replication Adapter (SRA) per datastore NFS e VMFS]
+ a| 
+SRA implementa il disaster recovery (DR) basato su specifiche di VMware Site Recovery Manager (SRM). Per i datastore NFS, i volumi ONTAP sono montati sull'host ESXi utilizzando i protocolli NFS v3. Per i datastore VMFS, I LUN ONTAP sono montati sull'host ESXi utilizzando il protocollo iSCSI.
+
+Le relazioni di ONTAP SnapMirror replicano volumi e LUN nel sito di destinazione. SRA implementa i comandi testfailover, failover e reprotect richiamati da VMware SRM. Come parte dell'implementazione, SRA garantisce che tutti i volumi e le LUN siano montabili sulla destinazione in caso di recupero e che i volumi e le LUN del sito secondario siano in lettura per evitare discrepanze di dati.
+
+
+
+ a| 
+xref:../configure/dashboard-overview.html[Supporto completo dell'integrazione dell'interfaccia utente vCenter per tutti i flussi di lavoro]
+ a| 
+I tool ONTAP per VMware vSphere 10,1 offrono un'interfaccia utente grafica per i workflow che garantisce parità con i tool ONTAP per le release di VMware vSphere 9.xx. Il plug-in remoto supporta:
+
+* xref:../manage/migrate-standard-virtual-machines-to-vvols-datastores.html[Osservabilità e monitoraggio di datastore NFS, VMFS e vVol]
+* xref:../protect/configure-storage-replication-adapter-for-san-environment.html[Storage Replication Adapter per datastore NFS e VMFS]
+* xref:../configure/registration-process.html[Registrazione e annullamento della registrazione da parte del provider VASA]
+* xref:../configure/install-nfs-vaai-plug-in.html[Installazione plug-in VAAI]
+* xref:../manage/collect-the-log-files.html[Download del bundle di log per il vCenter selezionato]
+
+
+
+
+ a| 
+xref:../deploy/nonha-deployment.html[Supporto della variante di implementazione semplice]
+ a| 
+Puoi integrare rapidamente tool ONTAP per VMware vSphere 10,1 e provare le sue funzionalità sfruttando una semplice opzione di implementazione. Il ripristino basato su snapshot è supportato in un'implementazione semplice.
+
+
+
+ a| 
+xref:../configure/manager-user-interface.html[ONTAP tools Manager UI per tutti i workflow amministrativi degli strumenti ONTAP]
+ a| 
+ONTAP Tools Manager offre un controllo migliore all'amministratore degli strumenti ONTAP per le istanze vCenter gestite e i backend storage integrati. ONTAP Tools Manager aiuta a:
+
+* Gestione vCenter: Aggiunta e gestione delle istanze vCenter ai tool ONTAP per VMware vSphere.
+* Gestione del backend dello storage: Aggiungi e gestisci i cluster di storage ONTAP ai tool ONTAP per VMware vSphere e mappali alle istanze vCenter integrate a livello globale.
+* Download dei bundle di log: Raccolta dei file di log per gli strumenti ONTAP per VMware vSphere.
+* Gestione certificati - consente di modificare il certificato autofirmato in un certificato CA personalizzato e di rinnovare o aggiornare tutti i certificati.
+* Gestione password - Reimposta la password dell'applicazione OVA per l'utente.
+
+
+
+
+ a| 
+xref:../manage/certificate-manage.html[Gestione dei certificati]
+ a| 
+Una singola istanza dei tool ONTAP per VMware vSphere può gestire più istanze di vCenter. Quando implementi strumenti ONTAP per VMware vSphere, per impostazione predefinita, il certificato autofirmato viene assegnato a tutte le istanze vCenter. Quando si gestiscono più istanze di vCenter e si desidera abilitare la funzionalità vVol su più istanze di vCenter, è necessario modificare il certificato autofirmato in un certificato CA personalizzato utilizzando l'interfaccia di ONTAP tools Manager. È possibile utilizzare la stessa interfaccia per rinnovare o aggiornare tutti i certificati.
+
+
+
+ a| 
+xref:../concepts/ontap-tools-concepts-terms.html[Recovery point objective (RPO) zero-recovery point objective]
+ a| 
+In caso di perdita dei tool ONTAP per il setup di VMware vSphere, puoi ripristinare il setup dei tool ONTAP utilizzando il software di gestione dei dati ONTAP senza alcuna perdita di dati. Il ripristino con RPO pari a zero non è supportato per le semplici opzioni di implementazione.
+
+
+
+ a| 
+Supporto del protocollo iSCSI per l'installazione
+ a| 
+Trident supporta i protocolli NFS e iSCSI per fornire volumi persistenti. Quando implementi i tool ONTAP per VMware vSphere, puoi utilizzare il protocollo iSCSI per memorizzare i dati dei servizi del provider VASA nei volumi persistenti.
+
+
+
+ a| 
+IPv6 indirizzi: Supporto per lo storage e integrazione di vCenter
+ a| 
+È possibile integrare backend di archiviazione con indirizzi IPv4, indirizzi IPv6 o nomi di dominio completi (FQDN). I servizi di archiviazione e i servizi proxy di archiviazione utilizzano credenziali incorporate con gli stessi indirizzi IPv4 o IPv6 per comunicare con l'API REST di ONTAP. Il percorso dati è supportato con indirizzi IPv4, indirizzi IPv6 o FQDN utilizzando le regole dei criteri di esportazione.
+
+|===
