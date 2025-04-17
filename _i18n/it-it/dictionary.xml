@@ -1699,7 +1699,6 @@
   <block id="3f50e7c6b4d426580688c6da56153793" category="list-text">Aggiornamento del certificato</block>
   <block id="ef68cd44177b6a31df6410ebc4f7c5e1" category="list-text">Aggiornamento del plug-in remoto</block>
   <block id="8f7be3c874feb6ef0fd5f20afd8d5fbb" category="sidebar">Gli strumenti ONTAP per VMware vSphere consentono di configurare, gestire e proteggere i datastore virtuali nell'ambiente vCenter Server.</block>
-  <block id="26ffc687a7267f96a389530199971cd1" category="sidebar">Tool ONTAP per la documentazione di VMware vSphere</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
   <block id="da951ef1610be90b45b31baf7b25b179" category="sidebar">Scopri i tool ONTAP per VMware vSphere</block>
   <block id="2a03ee5b0887b8a6bf23fd52456544db" category="sidebar">Implementa i tool ONTAP per VMware vSphere</block>
@@ -1825,4 +1824,5 @@
   <block id="ed8359854c43609fca7bc8a46cca9eac" category="sidebar">Confronto tra le funzionalità di ONTAP Tools 9 e ONTAP Tools 10</block>
   <block id="f6e2644fce556a8207829c90c0760e9e" category="inline-link">Prerequisiti per la configurazione ha e avanzata non-ha</block>
   <block id="1194197b73e30573b06eeec54d3ca76d" category="list-text">Prima di installare gli strumenti ONTAP per VMware vSphere 10,1 nella configurazione non ha avanzata e ha, consultare l'articolo della Knowledge base:<block ref="e4dee65de4069a83bb14c7c7d5ee3ead" category="inline-link-rx"></block>.</block>
+  <block id="a62e9d532f8887c09395a1edc29c465f" category="sidebar">Tool ONTAP per la documentazione di VMware vSphere 10,1</block>
 </blocks>
