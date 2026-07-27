@@ -15,6 +15,7 @@ summary: 'È necessario configurare i sistemi di archiviazione prima di eseguire
 
 
 
+[[configure-sra-for-san-environments]]
 == Configurare SRA per gli ambienti SAN
 
 *Cosa ti serve*
@@ -46,6 +47,7 @@ A tale scopo, verificare che gli host ESXi abbiano LUN locali connessi alla SVM 
 
 
 
+[[configure-sra-for-nas-environments]]
 == Configurare SRA per gli ambienti NAS
 
 *Cosa ti serve*

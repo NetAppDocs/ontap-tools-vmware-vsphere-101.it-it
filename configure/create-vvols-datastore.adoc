@@ -17,6 +17,7 @@ La procedura guidata di creazione dell'archivio dati supporta la creazione di da
 
 
 
+[[create-a-vvols-datastore]]
 == Creare un datastore vVol
 
 Puoi creare un datastore vVol con nuovi volumi o volumi esistenti. Non è possibile creare un datastore vVol con un mix di volumi esistenti e nuovi.
@@ -45,6 +46,7 @@ Assicurarsi che il provider VASA sia registrato con il vCenter selezionato.
 
 
 
+[[create-an-nfs-datastore]]
 == Creare un datastore NFS
 
 Un datastore NFS (Network file System) di VMware utilizza il protocollo NFS per connettere gli host ESXi a un dispositivo di storage condiviso in una rete. I datastore NFS sono comunemente utilizzati negli ambienti VMware vSphere e offrono diversi vantaggi, come semplicità e flessibilità.
@@ -72,6 +74,7 @@ Il datastore NFS viene creato e montato su tutti gli host.
 
 
 
+[[create-a-vmfs-datastore]]
 == Creare un datastore VMFS
 
 Virtual Machine file System (VMFS) è un file system in cluster appositamente progettato per l'archiviazione dei file delle macchine virtuali negli ambienti VMware vSphere. Consente a più host ESXi di accedere contemporaneamente ai file della stessa macchina virtuale, abilitando funzionalità come vMotion e High Availability.

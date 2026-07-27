@@ -15,6 +15,7 @@ VCenter Server offre la piattaforma di gestione centrale che consente di control
 
 
 
+[[add-a-vcenter-server-instance]]
 == Aggiungere un'istanza di vCenter Server
 
 *A proposito di questa attività*
@@ -38,6 +39,7 @@ Quando si aggiunge un'istanza di vCenter Server agli strumenti ONTAP, vengono es
 
 
 
+[[register-ontap-tools-for-vmware-vsphere-plug-in-with-vcenter-server-instance]]
 == Registra i tool ONTAP per il plug-in VMware vSphere con l'istanza di vCenter Server
 
 Quando si aggiunge un'istanza di vCenter Server, gli strumenti ONTAP per il plug-in VMware vSphere vengono registrati automaticamente in vCenter Server come plug-in remoto. Il plug-in è visibile nei collegamenti dell'interfaccia utente di vSphere.
@@ -46,6 +48,7 @@ Il plug-in viene registrato con la chiave _com.netapp.otv_ dell'istanza di vCent
 
 
 
+[[unregister-ontap-tools-for-vmware-vsphere-plug-in]]
 == Annulla la registrazione dei tool ONTAP per il plug-in VMware vSphere
 
 Puoi annullare la registrazione degli strumenti ONTAP per il plug-in VMware vSphere da un'istanza di vCenter Server seguendo la procedura riportata di seguito.

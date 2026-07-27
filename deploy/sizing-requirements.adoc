@@ -42,6 +42,7 @@ Per link:../deploy/config-limits.html["Limiti di configurazione per l'implementa
 
 
 
+[[minimum-storage-and-application-requirements]]
 == Requisiti minimi di archiviazione e applicazione
 
 |===
@@ -68,24 +69,28 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 
 
 
+[[additional-deployment-considerations]]
 == Ulteriori considerazioni sull'implementazione
 
 È necessario considerare alcuni requisiti durante la personalizzazione dell'installazione degli strumenti ONTAP.
 
 
 
+[[application-user-password]]
 === Password dell'utente dell'applicazione
 
 Questa è la password assegnata all'account amministratore. Per motivi di sicurezza, si consiglia di utilizzare una lunghezza della password compresa tra otto e trenta caratteri e di inserire almeno un carattere superiore, uno inferiore, uno speciale e un carattere speciale.
 
 
 
+[[appliance-maintenance-console-credentials]]
 === Credenziali della console di manutenzione dell'appliance
 
 Si dovrebbe accedere alla console di manutenzione usando il nome utente "maint". È possibile impostare la password per l'utente "`maint`" durante l'implementazione. Per modificare la password, è possibile utilizzare l'opzione Restart guest OS (Riavvia sistema operativo guest) disponibile durante il riavvio della VM in vCenter Server.
 
 
 
+[[appliance-network-properties]]
 === Proprietà di rete dell'appliance
 
 Specificare un nome host DNS valido (non qualificato) nonché l'indirizzo IP statico per gli strumenti ONTAP per VMware vSphere e gli altri parametri di rete. Gli indirizzi IP forniti devono essere accessibili dalla rete VLAN selezionata durante la distribuzione. DHCP non è supportato per gli strumenti ONTAP per VMware vSphere 10,1. Tutti questi parametri sono necessari per un'installazione e un funzionamento corretti.

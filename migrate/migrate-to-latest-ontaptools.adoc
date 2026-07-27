@@ -25,6 +25,7 @@ NOTE: Come utente esistente, è necessario eseguire il backup OVA dalla versione
 
 
 
+[[common-migration-steps]]
 == Passaggi comuni di migrazione
 
 . Distribuzione di OVA per strumenti ONTAP per VMware vSphere 10,1.
@@ -35,6 +36,7 @@ NOTE: Come utente esistente, è necessario eseguire il backup OVA dalla versione
 
 
 
+[[sra-migration-steps]]
 == Fasi di migrazione SRA
 
 *Prima di iniziare*
@@ -61,6 +63,7 @@ Eseguire queste operazioni sui siti di protezione e ripristino.
 
 
 
+[[vasa-provider-migration-steps]]
 == Fasi di migrazione del provider VASA
 
 . Abilitare la PORTA Derby 1527 sugli strumenti ONTAP esistenti per VMware vSphere. Per attivare la porta, accedere alla CLI con l'utente root ed eseguire il seguente comando:

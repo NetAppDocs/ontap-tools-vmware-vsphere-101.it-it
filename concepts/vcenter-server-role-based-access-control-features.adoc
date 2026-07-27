@@ -42,6 +42,7 @@ Gli utenti e i gruppi accedono a un ruolo facendo parte di un ruolo vCenter Serv
 
 
 
+[[key-points-about-assigning-and-modifying-roles-for-vcenter-server]]
 == Punti chiave sull'assegnazione e la modifica di ruoli per vCenter Server
 
 È necessario impostare i ruoli di vCenter Server solo se si desidera limitare l'accesso a oggetti e task vSphere. In caso contrario, è possibile accedere come amministratore. Questo login consente di accedere automaticamente a tutti gli oggetti vSphere.
@@ -50,6 +51,7 @@ L'assegnazione di un ruolo determina gli strumenti ONTAP per le attività di VMw
 
 
 
+[[standard-roles-packaged-with-ontap-tools-for-vmware-vsphere]]
 == Ruoli standard forniti con strumenti ONTAP per VMware vSphere
 
 Per semplificare l'utilizzo dei privilegi di vCenter Server e RBAC, i tool ONTAP per VMware vSphere forniscono tool ONTAP standard per i ruoli VMware vSphere che consentono di eseguire tool ONTAP chiave per i task VMware vSphere. Esiste anche un ruolo di sola lettura che consente di visualizzare le informazioni, ma non di eseguire attività.
@@ -84,6 +86,7 @@ In questo caso, è necessario clonare gli strumenti ONTAP necessari per i ruoli 
 
 
 
+[[permissions-for-ontap-storage-backends-and-vsphere-objects]]
 == Autorizzazioni per backend di storage ONTAP e oggetti vSphere
 
 Se l'autorizzazione vCenter Server è sufficiente, gli strumenti ONTAP per VMware vSphere controllano quindi i privilegi RBAC di ONTAP (il ruolo ONTAP) associati alle credenziali backend di storage (il nome utente e la password) per determinare se si dispone di privilegi sufficienti per eseguire le operazioni di storage richieste dai tool ONTAP per l'attività VMware vSphere su quel backend dello storage. Se disponi del ONTAP Privileges corretto, puoi accedere ai backend di storage ed eseguire i tool ONTAP per i task di VMware vSphere. I ruoli ONTAP determinano i tool ONTAP per i task VMware vSphere che puoi eseguire sul backend dello storage.

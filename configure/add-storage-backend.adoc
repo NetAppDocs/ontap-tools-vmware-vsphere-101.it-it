@@ -22,6 +22,7 @@ NOTE: Quando si aggiunge un backend storage utilizzando l'interfaccia utente del
 
 
 
+[[add-storage-backend-using-ontap-tools-manager]]
 == Aggiungi il backend dello storage con ONTAP Tools Manager
 
 
@@ -42,6 +43,7 @@ NOTE: Sono supportate le LIF di gestione IPv4 e IPv6. Sono supportate anche le c
 
 
 
+[[add-storage-backend-using-vsphere-client-ui]]
 == Aggiungere il backend dello storage utilizzando l'interfaccia utente client vSphere:
 
 . Accedere al client vSphere utilizzando `\https://vcenterip/ui`

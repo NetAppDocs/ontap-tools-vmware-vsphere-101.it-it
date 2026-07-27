@@ -15,6 +15,7 @@ Esistono diversi punti chiave da tenere a mente quando si utilizzano le autorizz
 
 
 
+[[assigning-permissions]]
 == Assegnazione delle autorizzazioni
 
 È necessario impostare le autorizzazioni di vCenter Server solo se si desidera limitare l'accesso agli oggetti e alle attività di vSphere. In caso contrario, è possibile accedere come amministratore. Questo login consente di accedere automaticamente a tutti gli oggetti vSphere.
@@ -30,6 +31,7 @@ TIP: A meno che le policy di sicurezza aziendali non richiedano autorizzazioni p
 
 
 
+[[permissions-and-non-vsphere-objects]]
 == Permessi e oggetti non vSphere
 
 L'autorizzazione creata viene applicata a un oggetto non vSphere. Ad esempio, un sistema storage non è un oggetto vSphere. Se un privilegio si applica a un sistema di storage, è necessario assegnare l'autorizzazione contenente tale privilegio agli strumenti ONTAP per l'oggetto root VMware vSphere, poiché non è possibile assegnarlo a un oggetto vSphere.
@@ -38,6 +40,7 @@ Ad esempio, qualsiasi autorizzazione che includa un privilegio come gli strument
 
 
 
+[[modifying-permissions]]
 == Modifica delle autorizzazioni
 
 È possibile modificare un'autorizzazione alla volta.

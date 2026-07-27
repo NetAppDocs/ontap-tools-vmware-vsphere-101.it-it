@@ -15,6 +15,7 @@ Prima di iniziare la distribuzione dei tool ONTAP per VMware vSphere, devi conos
 
 
 
+[[preparing-for-deployment]]
 == Preparazione per l'implementazione
 
 Di seguito sono elencati i tool ONTAP per i requisiti di VMware vSphere prima di procedere con l'implementazione:

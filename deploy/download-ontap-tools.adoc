@@ -17,6 +17,7 @@ Una volta completata l'implementazione, nel tuo ambiente vengono installati i to
 
 
 
+[[content-library]]
 == Archivio di contenuti
 
 Una libreria di contenuti in VMware è un oggetto contenitore che memorizza modelli di VM, modelli di vApp e altri tipi di file. La distribuzione con la libreria di contenuti offre un'esperienza senza problemi poiché non dipende dalla connettività di rete.

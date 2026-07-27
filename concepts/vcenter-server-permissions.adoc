@@ -36,6 +36,7 @@ image:../media/permission-updated-graphic.gif["illustrazione dei componenti dei 
 
 
 
+[[privileges]]
 == Privilegi
 
 Due tipi di privilegi sono associati ai tool ONTAP per VMware vSphere:
@@ -59,12 +60,14 @@ Se si modificano i privilegi all'interno di un'autorizzazione, l'utente associat
 
 
 
+[[vsphere-objects]]
 == Oggetti vSphere
 
 Le autorizzazioni sono associate agli oggetti vSphere, come vCenter Server, host ESXi, macchine virtuali, datastore, data center, e cartelle. È possibile assegnare autorizzazioni a qualsiasi oggetto vSphere. In base all'autorizzazione assegnata a un oggetto vSphere, vCenter Server determina chi può eseguire le attività su tale oggetto. Per gli strumenti ONTAP per attività specifiche di VMware vSphere, le autorizzazioni vengono assegnate e convalidate solo a livello di cartella principale (vCenter Server) e non su altre entità. Ad eccezione del funzionamento del plug-in VAAI, in cui le autorizzazioni vengono convalidate per l'host ESXi interessato.
 
 
 
+[[users-and-groups]]
 == Utenti e gruppi
 
 È possibile utilizzare Active Directory (o la macchina vCenter Server locale) per configurare utenti e gruppi di utenti. È quindi possibile utilizzare le autorizzazioni di vCenter Server per concedere l'accesso a questi utenti o gruppi per consentire loro di eseguire strumenti ONTAP specifici per i task di VMware vSphere.

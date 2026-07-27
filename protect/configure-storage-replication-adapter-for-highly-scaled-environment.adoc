@@ -15,6 +15,7 @@ summary: 'È necessario configurare gli intervalli di timeout della memoria in b
 
 
 
+[[storage-provider-settings]]
 == Impostazioni del provider di storage
 
 Impostare i seguenti valori di timeout su SRM per l'ambiente in scala:
@@ -60,6 +61,7 @@ https://docs.vmware.com/en/Site-Recovery-Manager/8.7/com.vmware.srm.admin.doc/GU
 
 
 
+[[storage-settings]]
 == Impostazioni di storage
 
 Quando si preme un timeout, aumentare i valori di `storage.commandTimeout` e `storage.maxConcurrentCommandCnt` a un valore superiore.

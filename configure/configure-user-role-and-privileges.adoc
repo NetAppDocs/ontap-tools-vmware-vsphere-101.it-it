@@ -51,6 +51,7 @@ NOTE: L'operazione di disinstallazione non rimuove i ruoli dello strumento ONTAP
 
 
 
+[[svm-aggregate-mapping-requirements]]
 == Requisiti di mappatura degli aggregati delle SVM
 
 Per utilizzare le credenziali utente delle SVM per il provisioning dei datastore, i tool interni di ONTAP per VMware vSphere creano volumi nell'aggregato specificato nelle API SUCCESSIVE ai datastore. ONTAP non consente la creazione di volumi su aggregati non mappati in una SVM utilizzando le credenziali utente della SVM. Per risolvere questo problema, è necessario mappare le SVM con gli aggregati utilizzando l'API REST o la CLI di ONTAP, come descritto qui.
@@ -69,6 +70,7 @@ sti115_vsim_ucs630f_aggr1 vserver show-aggregates                               
 ----
 
 
+[[create-ontap-user-and-role-manually]]
 == Creare manualmente un utente e un ruolo ONTAP
 
 Seguire le istruzioni in questa sezione per creare manualmente l'utente e i ruoli senza utilizzare il file JSON.
@@ -100,6 +102,7 @@ Aggiungere il percorso *REST API* e il relativo accesso dal menu a discesa.
 
 
 
+[[list-of-minimum-privileges-required-for-non-admin-global-scoped-cluster-user]]
 == Elenco dei privilegi minimi richiesti per gli utenti cluster con ambito globale non amministratori
 
 In questa sezione sono elencati i privilegi minimi richiesti per gli utenti cluster con ambito globale non amministratore creati senza utilizzare il file JSON degli utenti. Se un cluster viene aggiunto nell'ambito locale, si consiglia di utilizzare il file JSON per creare gli utenti, poiché gli strumenti ONTAP per VMware vSphere richiedono più dei soli privilegi di lettura per il provisioning su ONTAP.

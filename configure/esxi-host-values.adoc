@@ -17,6 +17,7 @@ summary: È possibile impostare timeout e altri valori sugli host ESXi utilizzan
 
 
 
+[[hbacna-adapter-settings]]
 == Impostazioni adattatore HBA/CNA
 
 Consente di impostare le impostazioni di timeout dell'HBA consigliate per i sistemi di archiviazione NetApp.
@@ -41,6 +42,7 @@ Utilizzare il valore predefinito.
 
 
 
+[[mpio-settings]]
 == Impostazioni MPIO
 
 Le impostazioni MPIO definiscono i percorsi preferiti per i sistemi storage NetApp. Le impostazioni MPIO determinano quali percorsi disponibili sono ottimizzati (rispetto ai percorsi non ottimizzati che attraversano il cavo di interconnessione) e impostano il percorso preferito verso uno di tali percorsi.
@@ -49,6 +51,7 @@ Negli ambienti a performance elevate o quando si eseguono test delle performance
 
 
 
+[[nfs-settings]]
 == Impostazioni NFS
 
 * *Net.TcpipelHeapSize*

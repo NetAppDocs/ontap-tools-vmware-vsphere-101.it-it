@@ -37,6 +37,7 @@ Per informazioni dettagliate sui requisiti di dimensionamento del sistema host p
 
 
 
+[[ontap-tools-for-vmware-vsphere-storage-replication-adapter-sra]]
 == Tool ONTAP per VMware vSphere - Storage Replication Adapter (SRA)
 
 La tabella seguente mostra i numeri supportati per istanza di SRM utilizzando i tool ONTAP per VMware vSphere.

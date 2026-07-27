@@ -15,6 +15,7 @@ Puoi iniziare rapidamente a utilizzare i tool ONTAP per le API REST di VMware vS
 
 
 
+[[hello-world]]
 == Ciao mondo
 
 Puoi eseguire un semplice comando sul tuo sistema per iniziare a utilizzare i tool di ONTAP per l'API REST di VMware vSphere e verificarne la disponibilità.

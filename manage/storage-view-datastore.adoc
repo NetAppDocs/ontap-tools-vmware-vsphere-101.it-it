@@ -15,6 +15,7 @@ La vista dello storage ONTAP nella scheda Configure dei tool ONTAP per VMware vS
 
 
 
+[[ontap-storage-views-for-nfs-datastores]]
 == Viste dello storage ONTAP per datastore NFS
 
 .Fasi
@@ -30,6 +31,7 @@ La vista dello storage ONTAP nella scheda Configure dei tool ONTAP per VMware vS
 
 
 
+[[ontap-storage-views-for-vmfs-datastores]]
 == Viste dello storage ONTAP per datastore VMFS
 
 .Fasi
@@ -45,6 +47,7 @@ La vista dello storage ONTAP nella scheda Configure dei tool ONTAP per VMware vS
 
 
 
+[[ontap-storage-views-for-vvols-datastores]]
 == Viste dello storage ONTAP per i datastore vVol
 
 .Fasi
